@@ -1,28 +1,24 @@
 package App;
 
-public class Dog extends Animal {
+class Dog extends Animal {
+    private final static int MAX_RUN_LENGTH = 500;
+    private final static int MAX_SWIM_LENGTH = 10;
     public static int counter;
 
+
     public Dog() {
+        super(MAX_RUN_LENGTH, MAX_SWIM_LENGTH);
         counter++;
     }
 
     @Override
-    public void run(int obstacle) {
-        if (obstacle <= 500) {
-            System.out.println("Dog run " + obstacle + " meters");
-        } else {
-            System.out.println("The dog will not be able to run " + obstacle + " meters" + "... He will get tired ");
-        }
+    void run(int obstacle) {
+        if ((obstacle >= 0) && (obstacle <= MAX_RUN_LENGTH)) System.out.println("Dog run " + obstacle + " meters");
     }
 
     @Override
-    public void swim(int obstacle) {
-        if (obstacle <= 10) {
-            System.out.println("Dog swim " + obstacle + " meters");
-        } else {
-            System.out.println("The dog will not be able to swim " + obstacle + "... He will get tired ");
-        }
+    void swim(int obstacle) {
+        if ((obstacle >= 0) && (obstacle <= MAX_SWIM_LENGTH)) System.out.println("Dog swim " + obstacle + " meters");
     }
 
 }
